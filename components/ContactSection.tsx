@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent, useRef } from 'react';
+import emailjs from "@emailjs/browser";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-
+  const form = useRef<HTMLFormElement>(null);
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -12,7 +13,19 @@ export default function ContactSection() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form Submitted:', formData);
+    emailjs
+      .sendForm(process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID!,process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID! ,form.current!, {
+        publicKey: process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY,
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error);
+        },
+      );
+    console.log('Form Submitted:', form.current);
     // Add your form submission logic here
   };
 
@@ -23,10 +36,10 @@ export default function ContactSection() {
     >
       <h2 className="text-6xl font-bold mb-16 text-center">Contact Me</h2>
       <div className="p-6 rounded-lg w-full max-w-md">
-        <form onSubmit={handleSubmit} className="space-y-11">
+        <form ref={form} onSubmit={handleSubmit} className="space-y-11">
           <div>
             <label
-              htmlFor="name"
+              htmlFor="from_name"
               className="block text-lg font-medium"
             >
               Name
@@ -44,7 +57,7 @@ export default function ContactSection() {
           </div>
           <div>
             <label
-              htmlFor="email"
+              htmlFor="from_email"
               className="block text-lg font-medium"
             >
               Email

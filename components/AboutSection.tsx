@@ -8,7 +8,7 @@ import { SiPrisma, SiMysql, SiTypescript } from "react-icons/si";
 import { GrGraphQl } from "react-icons/gr";
 import { TbBrandCpp } from "react-icons/tb";
 import { HoverEffect } from "./ui/card-hover-effect";
-import { Timeline } from "./ui/timeline";
+import Timeline from "./ui/timeline";
 type TimelineEntry = {
   title: string;
   content: React.ReactNode;
@@ -63,7 +63,7 @@ export default function AboutSection() {
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <h2 className="text-6xl font-bold text-center mt-28 text-gray-900 dark:text-gray-100">
+      <h2 className="text-6xl font-bold text-center  text-gray-900 dark:text-gray-100">
         About Me
       </h2>
       <div className="mt-12 text-lg leading-8 text-gray-700 dark:text-gray-300 space-y-24 text-center max-w-3xl">

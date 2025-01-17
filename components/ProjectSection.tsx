@@ -13,7 +13,7 @@ export default function ProjectSection() {
   return (
     <motion.div
       id="projects" // Add id for scrolling
-      className="min-h-screen  bg-gray-200 dark:bg-gray-900"
+      className="min-h-screen  bg-gray-200 dark:bg-gray-900 "
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
