@@ -4,10 +4,42 @@ import Image from "next/image";
 import { FaPython, FaDocker } from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
 import { RiNextjsFill, RiNodejsLine } from "react-icons/ri";
-import { SiPrisma, SiMysql,SiTypescript } from "react-icons/si";
+import { SiPrisma, SiMysql, SiTypescript } from "react-icons/si";
 import { GrGraphQl } from "react-icons/gr";
 import { TbBrandCpp } from "react-icons/tb";
 import { HoverEffect } from "./ui/card-hover-effect";
+import { Timeline } from "./ui/timeline";
+type TimelineEntry = {
+  title: string;
+  content: React.ReactNode;
+};
+
+const TimeLineContent: TimelineEntry[] = [
+  {
+    title: "Fintechstico Hackathon Winner",
+    content: (
+      <p>
+        Winner of Fintechstico hackathon organized by FES Society of NSUT
+      </p>
+    )
+  },
+  {
+    title: "Glitch Hackathon Winner",
+    content: (
+      <p>
+        Winner of productivity track in Glitch hackathon organized by GDSC Shiv Nadar University.
+      </p>
+    )
+  },
+  {
+    title: "Software Developer Intern",
+    content: (
+      <p>
+        Winner of productivity track in Glitch hackathon organized by GDSC Shiv Nadar University.
+      </p>
+    )
+  },
+]
 
 const techStacks = [
   { title: "TypeScript", icon: <SiTypescript /> },
@@ -21,6 +53,7 @@ const techStacks = [
   { title: "GraphQL", icon: <GrGraphQl /> },
 ];
 export default function AboutSection() {
+  console.log("AboutSection");
   return (
     <motion.div
       id="about" // Add id for scrolling
@@ -48,20 +81,15 @@ export default function AboutSection() {
           </h2>
           <HoverEffect items={techStacks} />
         </div>
+        
+        <div className="w-full">
+          <h2 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
+            My Experience
+          </h2>
+          
+        </div>
       </div>
 
-      {/* Experience */}
-      <div>
-        <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-          Experience
-        </h3>
-        <p className="mt-4">
-          I have hands-on experience working on diverse projects, including developing a
-          Splitwise-like expense tracker, a password manager CLI app, and a Git workflow
-          visualizer extension. Additionally, I recently completed a 2-month internship,
-          where I contributed to enterprise-level codebases and honed my skills in team collaboration.
-        </p>
-      </div>
 
     </motion.div>
   );

@@ -1,8 +1,56 @@
+import ScrollToTopButton from "@/components/scrollToTopButton";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import Herosection from "@/components/Herosection";
-import NavBar from "@/components/NavBar";
 import ProjectSection from "@/components/ProjectSection";
+import { Timeline } from "@/components/ui/timeline";
+import React from "react";
+import { div } from "framer-motion/client";
+import Image from "next/image";
+
+type TimelineEntry = {
+  title: React.ReactNode;
+  content: React.ReactNode;
+  imageSrc?: string;
+};
+
+const TimeLineContent: TimelineEntry[] = [
+  {
+    title: (
+      <div>Fintechstico Hackathon Winner</div>
+    ),
+    content: (
+      <p>
+        Winner of Fintechstico hackathon organized by FES Society of NSUT
+      </p>
+    )
+  },
+  {
+    title: (
+      <div>glitch hackathon winner</div>
+    ),
+    content: (
+      <p>
+        Winner of productivity track in Glitch hackathon organized by GDSC Shiv Nadar University.
+      </p>
+    )
+  },
+  {
+    title: (
+      <div className="flex items-center space-x-16">
+        Software Developer Intern Twilio 2024
+        <Image alt="twilio" src="/twilio.png" width={100} height={100}/>
+      </div>
+    ),
+    content: (
+      <p>
+        Winner of productivity track in Glitch hackathon organized by GDSC Shiv Nadar University.
+      </p>
+    ),
+    imageSrc: "/twilio.png"
+  
+  },
+];
 
 export default function Home() {
   return (
@@ -14,9 +62,13 @@ export default function Home() {
       <div className="relative z-20">
         <Herosection />
         <AboutSection />
+        <Timeline data={TimeLineContent} />
         <ProjectSection />
-        <ContactSection/>
+        <ContactSection />
       </div>
+
+      {/* Scroll to Top Button */}
+      <ScrollToTopButton />
     </div>
   );
 }
