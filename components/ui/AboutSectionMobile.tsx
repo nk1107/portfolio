@@ -7,8 +7,9 @@ import { RiNextjsFill, RiNodejsLine } from "react-icons/ri";
 import { SiPrisma, SiMysql, SiTypescript } from "react-icons/si";
 import { GrGraphQl } from "react-icons/gr";
 import { TbBrandCpp } from "react-icons/tb";
-import { HoverEffect } from "./ui/card-hover-effect";
-import Timeline from "./ui/timeline";
+import { HoverEffect } from "./card-hover-effect";
+
+
 type TimelineEntry = {
   title: string;
   content: React.ReactNode;
@@ -52,16 +53,16 @@ const techStacks = [
   { title: "Python", icon: <FaPython /> },
   { title: "GraphQL", icon: <GrGraphQl /> },
 ];
-export default function AboutSection() {
+export default function AboutSectionMobile() {
   console.log("AboutSection");
   return (
-    <motion.div
+    <div
       id="about" // Add id for scrolling
       className="w-full h-auto flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-24"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+    //   initial={{ opacity: 0, y: 50 }}
+    //   whileInView={{ opacity: 1, y: 0 }}
+    //   viewport={{ once: true, amount: 0.5 }}
+    //   transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center text-gray-900 dark:text-gray-100">
         About Me
@@ -89,6 +90,6 @@ export default function AboutSection() {
           
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
