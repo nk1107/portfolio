@@ -12,7 +12,7 @@ export default function NavBar() {
 
   return (
     <motion.div
-      className="flex justify-center items-center bg-[#111827] gap-x-14 px-10 py-3"
+      className="flex justify-center items-center bg-[#111827] gap-x-10 px-6 sm:px-10 py-3"
       initial={{ opacity: 0, y: -20 }} // Start with opacity 0 and move up slightly
       animate={{ opacity: 1, y: 0 }} // Fade in and move to the original position
       transition={{ duration: 0.8, ease: "easeOut" }} // Adjust duration and easing
@@ -21,7 +21,7 @@ export default function NavBar() {
         <div
           key={item}
           onClick={() => handleScroll(item.toLowerCase().replace(" ", "-"))} // Scroll to section
-          className="relative group px-4 py-2 text-white font-medium hover:cursor-pointer"
+          className="relative group px-3 sm:px-4 py-2 text-sm sm:text-base text-white font-medium hover:cursor-pointer"
         >
           {/* Text */}
           <span className="z-10 relative group-hover:text-black transition-colors duration-300 ease-in-out">
