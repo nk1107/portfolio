@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Oswald } from "next/font/google"; // Import Oswald font
 import "./globals.css";
 import NavBar from "@/components/NavBar";
-
+import { Analytics } from "@vercel/analytics/next"
 
 
 // Add Oswald font
@@ -29,6 +29,7 @@ export default function RootLayout({
       >
         <NavBar/>
         {children}
+        <Analytics />
       </body>
     </html>
   );
